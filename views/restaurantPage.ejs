@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= restaurant.name %>@RestView</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="styles/icons/rest_favicon.png" />
+</head>
+<body>
+    <% include partials/nav %>
+    <div class="center-wide">
+        <% if (alertMsg) { %>
+        <%= alertMsg %>
+        <% } else { %>
+            <section class="content-whole-info space-p2 ">
+                <section class=" content-whole-details ">
+                    <div class="space-p2">
+                        <span class="none-resp">
+                            <span class="space-p3 in-block-position side-width">
+                                <img class="whole-size " src="<%=restaurant.image %>">
+                                <p class="card-feed space-p1--quarter "><a href="<%= restaurant.website %>"  target="_blank" title="<%= restaurant.website %>" >Go to <%= restaurant.name %>'s Website</a></p>
+                                <p class="card-feed space-p1--quarter "><a href="#post-review" target="_self" >Tell us about your experience</a></p>
+                            </span>
+                        </span>
+                        <span class="in-block-position center font-size1half main-details--width">
+                            
+                            <h1 class="color-text--dark  font-size2 ">
+                                <span class="none-resp"><%= restaurant.name %></span>
+                                <span class="none-pre-resp" ><a class="color-text--dark no-decoration--text"  href="<%= restaurant.website %>"  target="_blank" title="<%= restaurant.website %>" ><%= restaurant.name %></a></span>
+                                <% restaurant.grade = Math.round(restaurant.grade*10)/10 %>
+                                <span class="circle" ><%= restaurant.grade %></span>
+                            </h1>
+    
+                            <p class="card-feed space-p1--quarter">
+                                <strong><%= restaurant.description %></strong>
+                            </p>
+                            <p  class="card-feed space-p1--quarter">Address : <%=restaurant.location%></p>
+                            <div class="card-feed space-p1--quarter">
+                                <form class="margin-bottom1" action="/restaurant/tag" method="POST">
+                                    <input type="hidden" name="restId" value="<%= restaurant._id %>"> 
+                                    <input class= "space-p1" type="text" name="newTag" placeholder="Add New" required>
+                                    <button class="btn  space-p1" type="submit"> Tag </button>
+                                </form>    
+                                <div class="tags margin-bottom1">
+                                    <% restaurant.tags.forEach(function(tag,i){%>
+                                        <li class="tag">
+                                            <%= tag %>
+                                        </li>
+                                    <% }); %>
+                                </div>                            
+                            </div>
+                        </span>
+                    </div>
+                </section>
+                <section class=" content-whole-details ">
+                    <div class=" ">
+                        <span id="googleMap" class=" in-block-position font-size1half Map-restaurant"></span>
+                    </div>
+                </section>
+                <section id="post-review" class=" margin-bottom1 margin-top1 margin-left2 margin-right2 content-whole-details">
+                    <h2 class="color-text--primary"> Review <%=restaurant.name%></h2>
+                    <form class="space-p1 width--half" action="/restaurant/review" method="POST">
+                        <input type="hidden" name="restId" value="<%= restaurant._id %>">
+                        <div  class="margin-bottom1 display--block" >
+                            <input  class="space-p1 margin-right1" type="text" name="Name" placeholder="Name" required >
+                            <input  class="space-p1" type="email" name="Email" placeholder="Email" required >
+                        </div>
+                        <textarea class="commentBox space-p2 margin-bottom1" name="review" placeholder="How was it?"></textarea>
+                        <div><button class="btn bottom3 left1">Send</button></div>                
+                    </form>            
+                </section>
+                <section class="margin-left2 margin-right2">
+                    <h3 class="color-text--primary">Former Reviews:</h3>
+                    <div div class="row-feed">
+                        <% restaurant.reviews.slice().reverse().forEach(function(review,i){%>
+                            <div class="card-feed space-p1--quarter rounded-corner--level1">
+                              <h3><%=  review.Name %> says: </h3>
+                              <h5><%= review.Time %></h5>
+                              <p><%=  review.Body %></p>
+                            </div>
+                    <% }); %>
+                    </div>
+                </section>
+            </section>
+            <% include partials/map %>
+        <% } %>
+    </div>
+    <% include partials/footer %>
+    
+    <script src="/models/responsive.js" type="text/javascript"> </script>
+    <script src="/models/share.js" type="text/javascript"> </script>
+
+</body>
+</html>

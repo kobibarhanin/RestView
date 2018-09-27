@@ -1,0 +1,79 @@
+
+.btn {        /* general for button*/
+    background-color: #9ebfb1; /* Green */
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 0.3125rem;
+    cursor:pointer;
+
+}
+.btn--toPop { /*btn for pop up */
+    background-color: #d1d8d5; /* grey */
+      padding: 0rem;
+      color:black;
+      cursor: pointer;
+}
+
+
+.btn:hover{
+    box-shadow: 0rem 1rem 2rem -0.6rem #8c8989;
+}
+
+.btn--toPop:hover{
+    box-shadow:0 0rem 0rem;
+    }
+
+.btn-forward{ /* getting info from server*/
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-lg{
+      padding: 1rem 2rem;
+}
+
+.grade-btn { /* send grade of restaurant btn*/
+    position: relative;
+    background-color: #39CCCC;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.grade-btn:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -1.25rem;/*!important;*/
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.grade-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.link:hover{
+    background-color:  #efefef ;
+}

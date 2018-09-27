@@ -1,0 +1,88 @@
+.body-feed{
+  font-family: Arial;
+  padding: 1.25rem;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header-feed{
+  padding: 1.875rem;
+  text-align: center;
+  background-color: white;
+}
+
+.header-feed-back{
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+  font-weight: bold;
+  display: inline-block;
+  margin: 2rem 2rem;
+  background: rgba(0,0,0,0.1); 
+  text-shadow: -0.0625rem -0.0625rem 0 #000, 0.0625rem -0.0625rem 0 #000, -0.0625rem 0.0625rem 0 #000, 0.0625rem 0.0625rem 0 #000;
+}
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn { 
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 1.25rem;
+}
+
+/* Fake image */
+.img-feed {
+  background-color: #aaa;
+  width: 90%;
+  padding: 1.25rem;
+}
+
+/* Add a card effect for articles */
+.card-feed {
+  background-color: white;
+  margin-top: 1.25rem;
+}
+
+/* Clear floats after the columns */
+.row-feed:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer-feed {
+  padding: 1.25rem;
+  text-align: center;
+  background: #ddd;
+  margin-top: 1.25rem;
+}
+
+.icon-on-image--new{/*icon on image in feed new*/
+	 position:absolute;
+	 left: 1.5rem;
+	 z-index: 3; 
+	 width: 5rem;
+	 height: 5rem
+}
+.icon-on-image--tagReview{/*icon on image in feed tagReview*/
+ position:absolute; 
+ left: 5rem; 
+ z-index: 3; 
+ width: 1.5rem;
+ height: 1.5rem; 
+ background:white;
+}
+
+.to-inline{/* turn to inline*/
+  display:inline;
+}
+.date-position--feed{
+  position: absolute;
+  right: 1.25rem;
+}

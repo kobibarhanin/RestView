@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Feeder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="styles/icons/rest_favicon.png" />
+    
+</head>
+<body>
+    
+    <% include partials/nav %>
+
+    <div class="body-feed">
+        <div class="center-wide">
+            <div class="header-feed img-feeder">
+                <div class="header-feed-back">
+                  <span class="color-text--primary font-size3">The Feeder</span>
+                </div>
+            </div>
+            <div class="row-feed">
+                <% if (alertMsg) { %>
+                    <%= alertMsg %>
+                <% } else { %>
+                    <% feedItems.forEach(function(item, i){ %>
+                        <div class="card-feed text-not-overflow">
+                            <% if(item.Type=="Restaurant.create") { %> 
+                               <div class="border-red--left space-p1--quarter">
+                                         <img class="img-feeder--restaurant"  src="<%= item.Item.image %>">
+                                    <img src="https://secomapp.com/product_label/labels/biggy-store/new-tag.png"  class="icon-on-image--new" >
+                                       
+                                        <h2 class="to-inline>New: <a href="/restaurant/<%=item.Item._id%>" class="color-text--primary"><%= item.Item.name %></a></h2>
+                                    <div class="text-break"> 
+                                        <p class="margin-left7 ">
+                                            <strong><%= item.Item.description %></strong>
+                                        </p>
+                                        <p>
+                                            <i><%= item.Item.location %></i>
+                                        </p>
+                                    </div>
+                                      <span class="date-position--feed"> <%= item.Time %> </span><br />
+                                  </div>
+                            <% } else if(item.Type=="Restaurant.tag") { %>
+                                 <div class="border-orange--left space-p1--quarter">
+                                    <img class="img-feeder--restaurant" src="<%= item.Item.image %>">
+                                    <img src="/styles/icons/tag.png" 
+                                      class="icon-on-image--tagReview" >
+                                    <h2 class="to-inline">Tagged: 
+                                    <span class="color-text--primary">
+                                          <a href="/restaurant/<%=item.Item._id%>" class="color-text--primary"><%= item.Item.name %></a> 
+                                    </span>
+                                    </h2>
+                                    <div class="text-break"> 
+                                        <p class="margin-left7 ">
+                                            The tag is : 
+                                            <strong><%= item.additional %></strong>
+                                        </p>
+                                    </div>
+                                    <span class="date-position--feed"> <%= item.Time %> </span><br />
+                                </div>
+                            <% } else if(item.Type=="Review.create") { %>
+                                <div class="border-blue--left space-p1--quarter">
+                                    <img  class="img-feeder--restaurant" src="<%= item.Additional.image %>">
+                                    <img src="/styles/icons/comment2.png" class="icon-on-image--tagReview">
+                                  
+                                    <h2 class="to-inline">Review for <a href="/restaurant/<%=item.Additional._id%>" class="color-text--primary"><%= item.Additional.name %></a> </h2>
+                                    ,By:
+                                    <span class="color-text--primary"><%= item.Item.Name %></span>
+                                    <div  class="text-break" >
+                                        <p class="margin-left7 ">The review is : <strong> <%= item.Item.Body %></strong> </p>
+                                    </div>
+                                    <span class="date-position--feed"> <%= item.Time %> </span><br />
+                                </div>
+                            <% } %>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
+    <% include partials/footer %>
+    
+    <script src="/models/responsive.js" type="text/javascript"> </script>
+    <script src="/models/share.js" type="text/javascript"> </script>
+
+</body>
+</html>

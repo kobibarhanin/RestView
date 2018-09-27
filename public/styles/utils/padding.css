@@ -1,0 +1,28 @@
+
+/* paddings in website*/
+.space-p0 {
+    padding:0rem;
+}
+.space-p1 {
+    padding: var(--space);
+}
+.space-p1--quarter {
+    padding: calc(var(--space) * 1.35);
+}
+.space-p2 {
+    padding: calc(var(--space) * 2);
+}
+
+.space-p3 {
+    padding: calc(var(--space) * 3);
+}
+.space-p4 {
+    padding: calc(var(--space) * 4);
+}
+
+.padding-bottom5{
+    padding-bottom: 10rem;
+}
+li a.padding-top0-right0{/* padding to icons in nav like whastapp facebook  */
+    padding: 0rem 0rem;
+}

@@ -1,0 +1,76 @@
+.search-center{
+    text-align: center;
+    overflow: auto;
+}
+
+.search-section {/*section of seaarch */
+    text-align: center;
+    overflow: auto;
+    text-shadow:
+        -0.0625rem -0.0625rem 0 #000,
+        0.0625rem -0.0625rem 0 #000,
+        -0.0625rem 0.0625rem 0 #000,
+        0.0625rem 0.0625rem 0 #000;
+}/*f7f7f7*/
+
+.background-input{
+    background: linear-gradient(45deg, #ececec 53%, #f7f7f7 34%);
+}
+
+.side-width{    /* put block side in 23% aside*/
+    width:23%;
+}
+
+.card-width{
+    width:40%;
+}
+
+.Map-restaurant{    /* map in restaurant page for example*/
+    width: 60%;
+    height: 18rem;
+    position: relative;
+    overflow: hidden;
+    margin: 2.5% 20%;
+}
+.center {
+    margin: auto;
+    width: 57%;
+    padding:0.625rem;
+}
+
+.popCenter {
+    margin: auto;
+    width: 50%;
+
+}
+.in-block-position {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card {
+    max-width: 12.5rem;
+    margin: auto;
+    text-align: center;
+}
+
+.grade-box{                /*box of grade in website*/
+    min-height: 0.3125rem;
+    min-width: 0.3125rem;
+}
+
+.circle{
+    border-radius: 50%;
+    background-color: white;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+}
+.width--half{        /* width of 50% */
+    width: 50%;
+}
+.display--block{        /*dispaly block*/
+    display: block;
+}
+.rounded-corner--level1{    /*rounded corner of boxes*/
+    border-radius: 1.25rem;
+}

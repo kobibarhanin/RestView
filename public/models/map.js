@@ -1,0 +1,1 @@
+// TODO - refactor script tag from restaurantsMap.ejs over here.

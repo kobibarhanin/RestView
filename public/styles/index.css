@@ -1,0 +1,24 @@
+/* links for css files in website*/
+
+
+@import 'components/actions.css';
+@import 'components/boxes.css';
+@import 'components/img-content.css';
+@import 'components/modal.css';
+@import 'components/tabs.css';
+@import 'components/feed.css';
+@import 'components/tags.css';
+@import 'components/footer.css';
+
+@import 'utils/margin.css';
+@import 'utils/padding.css';
+@import 'utils/font-size.css';
+@import 'utils/relative-location.css';
+@import 'utils/text-features.css';
+
+@import 'config.css';
+
+@import 'themes/colors.css';
+@import 'themes/elements.css';
+@import 'themes/responsive.css'; /* it's at the end so the Media css will take a precedence*/
+

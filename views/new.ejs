@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add New</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/styles/icons/rest_favicon.png" />
+        <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+    
+    <% include partials/nav %>
+        <main class="center-wide">
+            <div class="search-section font-size1 theme-searchBox background-input">
+                <h1 class="color-text--primary">Add a new Restaurant:</h1>
+                <form action = "/restaurants" method="POST"> <!--add restuarant page -->
+                    <div class="margin-bottom1">
+                        <input  class="textBox-input space-p1" type="text" name="name" placeholder="Name" maxlength="12" required>
+                    </div>
+                    <div class="margin-bottom1">
+                        <input  class="textBox-input space-p1" type="text" name="webUrl" placeholder="Website (URL)">
+                    </div>
+                    <div class="margin-bottom1">
+                        <input  class="textBox-input space-p1" type="text" name="imageUrl" placeholder="Image (URL)" required>
+                    </div>
+                    <div class="margin-bottom1">
+                        <input  class="textBox-input space-p1" type="text" name="description" placeholder="Description" maxlength="20" required>
+                    </div>
+                    <div class="margin-bottom1">
+                        <input  class="textBox-input space-p1" type="text" name="location" placeholder="Location" required>
+                    </div>  
+                    <div class="margin-bottom1">
+                        <button class="btn btn-lg btn-default btn-block btn-primary">Submit</button> 
+                    </div>
+                </form>
+                
+            </div>
+        </main>
+
+        <% include partials/footer %>
+        
+        <script src="/models/responsive.js" type="text/javascript"> </script>
+        <script src="/models/share.js" type="text/javascript"> </script>
+
+    </body>
+</html>

@@ -1,0 +1,55 @@
+
+/* here are style for elemnts of html*/
+body{
+    margin:0em;
+    font-family:Arial;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+footer ul { /* inheritance from ul css here*/
+    list-style-type: square;
+    background-color: transparent;
+    overflow:inherit;
+}
+footer ul li{
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+main section:nth-child(2) {
+    min-height: 34rem;
+    overflow: auto;
+}
+footer {
+    background-color: #a3a3a3;
+    min-height: 7rem;
+    color:white;
+    overflow:auto;
+}
+img {
+    width: 5rem;
+    height:5rem;
+}
+
+aside {
+    float: right;
+    width: 25%;
+}
+tr {
+    border-bottom: 1pt solid #e4e4e4;
+}
+table {
+    border-collapse: collapse;
+        width:100%;
+}
+td {
+    max-width: 28rem;
+}
+

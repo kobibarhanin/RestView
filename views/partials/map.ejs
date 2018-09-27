@@ -1,0 +1,42 @@
+    
+
+    <script>
+    
+
+    
+    function myMap() {
+    var mapProp= {
+        center:new google.maps.LatLng(32.794044,34.989571),
+        zoom:10,
+    };
+    
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+    var geocoder;
+    geocoder = new google.maps.Geocoder;
+
+    var address = "<%=restaurant.location%>";
+    if(!address) address="Haifa";
+    
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === 'OK') {
+        map.setCenter(results[0].geometry.location);
+        
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+
+    
+    }
+
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxkQtLYYJIbREpJQbln4bBQX2vE2BuTfY&callback=myMap"></script>
+
+
+

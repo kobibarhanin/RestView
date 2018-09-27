@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Mapkin</title>
+    <link rel="icon" type="image/png" href="/styles/icons/rest_favicon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/models/responsive.js" type="text/javascript"> </script>
+
+</head>
+<body>
+    
+    <% include partials/nav %>
+    
+    <% if (alertMsg) { %>
+        <%= alertMsg %>
+    <% } else { %>
+    
+        <div class="background-img">
+            <div class="center-wide">
+                <section class="theme-searchBox search-center font-size3">
+                    <form action = "/restaurants/map/target" method="GET">
+                        <input type="text" placeholder="Find Restaurants near..." name="mapCenter" class="textBox-input space-p1" require/>
+                        <button class="btn margin-bottom1 left1" >Find</button>              
+                    </form>
+                </section>
+                <section>
+                    <span id="googleMap" class="map in-block-position margin-top1"></span>
+                </section>
+            </div>
+        </div>
+
+    <% } %>
+
+
+    <% include partials/footer %>
+
+    <script>
+    
+        let err = "<%= alertMsg %>";
+        if(!err){
+    
+            var locationsRaw = "<%= restaurantsLocations %>";
+            var locations = locationsRaw.split(',');
+            
+            var imagesRaw = "<%= restaurantsImages %>";
+            var images = imagesRaw.split(',');
+        
+            var idsRaw = "<%= restaurantsIds %>";
+            var ids = idsRaw.split(',');
+            
+            var namesRaw = "<%= restaurantsNames %>";
+            var names = namesRaw.split(',');
+            
+            
+            var tagsRaw = "<%= restaurantsTags %>";
+            var tags = tagsRaw.split(';');
+            
+            var gradesRaw = "<%= restaurantsGrades %>";
+            var grades = gradesRaw.split(',');
+        
+        }
+        
+    function restaurantsMap() {
+        
+        let mapProp= {
+            zoom:13,
+        };
+        
+        let map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    
+        let geocoder;
+        geocoder = new google.maps.Geocoder;
+    
+
+        
+        for(let i = 0; i<locations.length; i++){
+            address = locations[i];
+            tags[i] = tags[i].substring(1);
+            image = buildWindowString(images[i],names[i],tags[i], grades[i]);
+            id=ids[i];
+            Geocode(address, image, id);
+            
+        }  
+        
+        address = "<%- mapCenter %>";
+        
+        GeocodeMapCenter(address);
+    
+          
+        function buildWindowString(imageUrl,name,tags,grade){
+            grade = Math.round(grade*10)/10
+            let windowString =                
+                '<div class="card">'+
+                  '<img src="'+imageUrl+'" class="card-width margin-top1">'+
+                  '<h1>'+name+'</h1>'+
+                  '<p class="title">Rank: '+grade+'</p>'+
+                  //'<p>'+tags+'</p>'+
+                '</div>';
+
+            return windowString;
+        }
+   
+   
+        function Geocode(address,image,id){
+            
+            let infowindow = new google.maps.InfoWindow({
+                    content: image,
+            });
+            
+            geocoder.geocode({'address': address}, function(results, status) {
+              if (status === 'OK') {
+
+                let marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+                });
+                
+                marker.addListener('mouseover', function() {
+                    infowindow.open(map, marker);
+                });
+                
+                marker.addListener('mouseout', function() {
+                    infowindow.close();
+                });
+                
+                
+                marker.addListener('click', function() {
+                    window.location.replace("/restaurant/"+id);
+                });
+                
+                } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {    
+                    setTimeout(function() {
+                        Geocode(address,info,id);
+                    }, 200);
+                } else {
+                    alert("Geocode was not successful for the following reason:" 
+                          + status);
+                }
+            });
+            
+        }
+        
+        function GeocodeMapCenter(address){
+            
+            
+            geocoder.geocode({'address': address}, function(results, status) {
+              if (status === 'OK') {
+                  
+                map.setCenter(results[0].geometry.location);
+                
+                
+                } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {    
+                    setTimeout(function() {
+                        Geocode(address);
+                    }, 200);
+                } else {
+                    alert("Geocode was not successful for the following reason:" 
+                          + status);
+                }
+            });
+        }
+    }
+    </script>
+
+    <script src="/models/map.js" type="text/javascript"> </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxkQtLYYJIbREpJQbln4bBQX2vE2BuTfY&callback=restaurantsMap"></script>
+    <script src="/models/share.js" type="text/javascript"> </script>
+
+</body>
+
+</html>

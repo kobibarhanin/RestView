@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RestView</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+    <link rel="icon" type="image/png" href="styles/icons/rest_favicon.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <% include partials/nav %>
+
+    <div class="center-wide">
+        <main>
+            
+            <section class=" search-resp search-section font-size3 theme-searchBox img-main"><!-- search section in landing page --> 
+                <h1 class="margin-top3 margin-bottom1 color-text--primary">Hungry?</h1>
+                <form action = "/restaurants/search" method="POST">
+                    <input type="text" name="searchTarget" class="textBox-input space-p1" />
+                    <div class="color-text--primary font-size1-middle ">
+                       <span>Search by:</span> 
+                       <span>
+                            <label class="block-resp">Name
+                              <input type="radio" name="searchType" value="searchByName" checked="checked">
+                            </label>
+                            <label class="block-resp">Tag
+                              <input type="radio" name="searchType" value="searchByTag">
+                            </label>
+                        </span>
+                    </div>
+                    <button class="btn btn-lg btn-forward margin-bottom3" >Search</button>
+                </form>
+    
+            </section>
+        
+            <section class="theme-results margin-bottom3"><!--initials results-->
+                <div class="content-box margin-top2 center-wide">
+                    <table id="listRestaurants">
+                        <% if (alertMsg) { %>
+                            <%= alertMsg %>
+                        <% } else { %>
+                            <% restaurants.forEach(function(restaurant,i){ %>
+                                <% restaurant.grade = Math.round(restaurant.grade*10)/10 %>
+                                <tr> 
+                                    <td class="space-p1 block-resp">
+                                        <img class="img-resp" src="<%=restaurant.image %>" title="<%-restaurant.name %>">
+                                    </td>
+                                    <td class="space-p1 inline-block-resp">
+                                        <h3 class="text-lg-resp">
+                                            <a target="_self" class="color-text--primary link" href="/restaurant/<%= restaurant.id %>" target="_blank"><%-restaurant.name %></a>
+                                        </h3>
+                                    </td>
+                                    <td class="space-p1 inline-block-resp">
+                                        <p class="text-lg-resp" title="Grade"><%= restaurant.grade %></p>
+                                    </td>
+                                    <td class="space-p1 none-resp">
+                                        <p><%= restaurant.graders %> graders</p>
+                                    </td>
+                                    <td class="space-p1 block-resp">
+                                        <form action = "/restaurants/grade" method="POST">
+                                                <input  class= "grade-box grade-box-resp" type="number" name="grade" min="1" max="5">
+                                                <input type="hidden" name="restId" value="<%= restaurant._id %>"> 
+                                                <button class= "grade-btn btn-lg-resp" title="send grade">grade</button>
+                                        </form>
+                                    </td>
+                                    <td class="space-p1 tags block-resp">
+                                         <% restaurant.tags.forEach(function(tag,i){%>
+                                            <li class="tag" title="tagging">
+                                                <%= tag %>
+                                            </li>
+                                        <% }); %>
+                                    </td>
+                                    <td class="space-p1 none-resp" title="Last reviews">
+                                           <a id="popBtn<%=i%>"><i class="material-icons icon--reviewWebsite">comment</i></a>
+                                           <div id="popWindow<%=i%>" class = "modal">
+                                              <div class="modal-content">
+                                                <span class="close" id="closeWindow<%=i%>">&times;</span>
+                                                    <ul id="popcontent" class= "margin-top0 ">
+                                                        <% restaurant.reviews.forEach(function(review,k){ %>
+                                                            <li class="popCenter">
+                                                               <%= review.Name %> 
+                                                                ( <%= review.Time %> )
+                                                                :<strong>  <%= review.Body %> </strong>
+                                                            </li>
+                                                        <% }); %>
+                                                    </ul>
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="space-p1 none-resp">
+                                        <a href="<%= restaurant.website %>"  target="_blank" title="Restaurant website"><i class="material-icons icon--reviewWebsite">public</i></a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        <% } %>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <% include partials/footer %><!-- footer in website -->
+
+    <script src="/models/initial.js" type="text/javascript"> </script>
+    <script src="/models/responsive.js" type="text/javascript"> </script>
+    <script src="/models/share.js" type="text/javascript"> </script>
+    
+</body>
+</html>

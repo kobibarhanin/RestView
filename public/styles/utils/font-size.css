@@ -1,0 +1,23 @@
+
+/* font sizes */
+.font-size1 {
+    font-size: var(--font-sizeBase);
+}
+.font-size1half {
+    font-size: calc(var(--font-sizeBase) * 1.2);
+}
+.font-size1-middle {
+    font-size: calc(var(--font-sizeBase) * 1.5);
+}
+
+.font-size2 {
+    font-size: calc(var(--font-sizeBase) * 2);
+}
+
+.font-size3 {
+    font-size: calc(var(--font-sizeBase) * 3);
+}
+
+.font-size4 {
+    font-size: calc(var(--font-sizeBase) * 4);
+}

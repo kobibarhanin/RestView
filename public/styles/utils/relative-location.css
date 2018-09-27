@@ -1,0 +1,57 @@
+
+/* relative positions style in website*/
+.bottom1 {
+    bottom: var(--bottom);
+}
+
+.bottom2 {
+    bottom: calc(var(--bottom) * 2);
+}
+.bottom3 {
+    bottom: calc(var(--bottom) * 3.5);
+}
+
+
+.left1 {
+    left: var(--left);
+}
+
+.left2 {
+    left: calc(var(--left) * 2);
+}
+.left3 {
+    left: calc(var(--left) * 3);
+}
+.left4 {
+    left: calc(var(--left) * 4);
+}
+.left18 {
+    left: calc(var(--left) * 18);
+}
+
+.right1 {
+    right: var(--right);
+}
+
+.right2 {
+    right: calc(var(--right) * 2);
+}
+
+.top1 {
+    top: var(--top);
+}
+
+.top2 {
+    top: calc(var(--top) * 2);
+}
+.top9 {
+    top: calc(var(--top) * 9);
+}
+.top19 {
+    top: calc(var(--top) * 19);
+}
+
+.text-not-overflow{/*fot text to not overflow in div and etc*/
+    position: relative;
+    overflow: hidden
+}

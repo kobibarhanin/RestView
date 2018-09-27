@@ -1,0 +1,24 @@
+
+
+.theme-results { /* theme main of results- for all results in website */
+    background-color: white;
+}
+.color-text--primary {/* main color*/
+    
+    color: var(--color-text--primary);
+}
+.color-text--dark {/* dark color*/
+    color: var(--color-text--dark);
+}
+.background-page-rest{
+    background: linear-gradient(0deg, #a3a3a3 50%, #333 50%);
+}
+.border-blue--left{ /*for feed border left*/
+    border-left: 0.3125rem solid #0e3f6b;
+}
+.border-orange--left{/*for feed border left*/
+    border-left: 0.3125rem solid #ff7f00;
+}
+.border-red--left{/*for feed border left*/
+    border-left: 0.3125rem solid #d61800;
+}

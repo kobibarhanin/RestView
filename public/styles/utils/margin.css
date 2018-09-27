@@ -1,0 +1,82 @@
+/* margins sizes in website */
+.margin-left1 {
+    margin-left: var(--margin);
+}
+
+.margin-left2 {
+    margin-left: calc(var(--margin) * 2);
+}
+.margin-left7 {
+    margin-left: calc(var(--margin) * 7);
+}
+.margin-left10 {
+    margin-left: calc(var(--margin) * 10);
+}
+
+
+
+
+
+.margin-right1 {
+    margin-right: var(--margin);
+}
+
+.margin-right2 {
+    margin-right: calc(var(--margin) * 2);
+}
+.margin-right3 {
+    margin-right: calc(var(--margin) * 3);
+}
+.margin-right4 {
+    margin-right: calc(var(--margin) * 4);
+}
+.margin-right10 {
+    margin-right: calc(var(--margin) * 10);
+}
+
+.margin-top0 {
+    margin-top: 0rem;
+}
+.margin-top1 {
+    margin-top: var(--margin);
+}
+
+.margin-top2 {
+    margin-top: calc(var(--margin) * 2);
+}
+.margin-top3 {
+    margin-top: calc(var(--margin) * 3);
+}
+
+
+
+
+
+.margin-bottom1 {
+    margin-bottom: var(--margin);
+}
+.margin-bottom2 {
+    margin-bottom: calc(var(--margin) * 2);
+}
+
+.margin-bottom3 {
+    margin-bottom: calc(var(--margin) * 3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

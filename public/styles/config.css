@@ -1,0 +1,12 @@
+﻿/* vars in website*/
+:root { /*vars*/
+    --space: 0.5rem;
+    --margin: 1rem;
+    --font-sizeBase: 1rem;
+    --bottom: 1rem;
+    --left: 1rem;
+    --right: 1rem;
+    --top: 1rem;
+    --color-text--primary: #9ebfb1 ;/*color*/
+    --color-text--dark:#497563;
+}

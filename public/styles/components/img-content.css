@@ -1,0 +1,52 @@
+
+img.whole-size{/* for img in restaurant page*/
+    width:100%;
+    height:100%;
+}
+.content-whole-details {/*details section in restaurant page  */
+    border-bottom: 0.0625rem solid #bfbaba;
+}
+.content-whole-info {/* content with reviews in restaurant page*/
+    background-color: #f1f1f1;
+    border-radius: 2rem;
+}
+
+.img-main{ /*main index page*/
+    background-image: url('https://image.freepik.com/free-photo/table-with-ingredients-to-prepare-italian-pasta_23-2147606548.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 0.75rem 0.75rem white inset;
+}
+
+.img-feeder{ /*main index page*/
+    background-image: url('https://creativenerds.co.uk/wp-content/uploads/2009/05/toast.jpg');
+    /*background-repeat: no-repeat;*/
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+}
+
+.background-img--about{/*about page*/
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 100%), url(https://previews.123rf.com/images/designsstock/designsstock1205/designsstock120500056/13605347-restaurant-menu-cover-design-with-knife-spoon-and-fork-.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.background-img{ /* map page*/
+    background-image: url("https://img3.stockfresh.com/files/s/stevanovicigor/m/43/3081410_stock-photo-table-napkin.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+.img-feeder--restaurant{
+    border: solid #f1f1f1;
+    margin: 0rem 1.25rem 0rem 0rem;
+    float: left;
+}
+.material-icons.icon--reviewWebsite{/*icon in index for review and website*/
+    font-size: 2.25rem; 
+    color: black; cursor: 
+    pointer;
+}

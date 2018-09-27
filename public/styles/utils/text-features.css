@@ -1,0 +1,21 @@
+
+
+/* text decorations of texts in website*/
+.center-title {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--color-text--primary);
+  
+}
+
+.text-break{/* for not overflow*/
+        word-wrap: break-word;
+}
+
+.text-about{
+    font: normal 1.25rem sans-serif; 
+    font-weight: bold;
+}
+.no-decoration--text{/* no decotration to text*/
+    text-decoration: none;
+}
