@@ -12,7 +12,7 @@ let indexRoutes     = require("./routes/index"),
 // Local db for development => 
 ////mongoose.connect("mongodb://localhost:27017/rest_view", { useNewUrlParser: true });
 // Hosted db for deployment => 
-mongoose.connect("mongodb://restviewdev:restviewdev1@ds115533.mlab.com:15533/restview", { useNewUrlParser: true });
+mongoose.connect("mongodb://MLAB_uname_passwd.mlab.com:15533/restview", { useNewUrlParser: true });
 
 let app = express();
 app.use(bodyParser.urlencoded({extended: true}));
